@@ -20,7 +20,7 @@ import {
   SubscriptionsParamList,
 } from "../types";
 import ExploreScreen from "./../screens/ExploreScreen";
-import HomeScreen from "./../screens/HomeScreen";
+import HomeScreen from "../screens/Home/HomeScreen";
 import LibraryScreen from "./../screens/LibraryScreen";
 import NotificationsScreen from "./../screens/NotificationsScreen";
 import SubscriptionsScreen from "./../screens/SubscriptionsScreen";
