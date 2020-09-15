@@ -20,7 +20,7 @@ export class HeaderBar extends React.Component {
           justifyContent: "space-between",
           display: "flex",
           flexDirection: "row",
-          borderBottomColor: "dimgray",
+          borderBottomColor: "#555555",
           borderBottomWidth: 1,
         }}
       >

@@ -37,6 +37,11 @@ export default function BottomTabNavigator() {
         activeTintColor: Colors[colorScheme].tint,
         inactiveBackgroundColor: "#292929",
         activeBackgroundColor: "#292929",
+        style: {
+          backgroundColor: "#292929",
+          paddingBottom: 35,
+          paddingTop: 5,
+        },
       }}
     >
       <BottomTab.Screen
@@ -96,7 +101,7 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Ionicons size={30} style={{}} {...props} />;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
