@@ -66,14 +66,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
-      <View
-        style={{
-          marginTop: 52,
-          flex: 1,
-          backgroundColor: "#292929",
-          width: "100%",
-        }}
-      >
+      <View style={styles.bodyWrapper}>
         <SuggestedCategories />
         <VideoList List={DATA} />
       </View>
@@ -90,13 +83,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  bodyWrapper: {
+    marginTop: 52,
+    flex: 1,
+    backgroundColor: "#292929",
+    width: "100%",
   },
 });
