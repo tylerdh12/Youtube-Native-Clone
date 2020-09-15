@@ -3,7 +3,7 @@ import * as React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import SuggestedCategories from "../../components/SuggestedCategories";
 import { View } from "../../components/Themed";
-import VideoList from "./VideoList";
+import VideoList from "../../components/VideoContainer/VideoList";
 const { DATA } = require("../../DATA");
 
 const HomeScreen = () => {
