@@ -14,10 +14,15 @@ interface VideoListProps {
     thubmnail: string;
     stats: string;
     duration: string;
+    videoLink: string;
+    likes: number;
+    dislikes: number;
+    views: number;
   }[];
+  navigation: any;
 }
 
-const VideoList: React.FC<VideoListProps> = ({ List }) => {
+export const VideoList: React.FC<VideoListProps> = ({ List, navigation }) => {
   return (
     <FlatList
       data={List}
@@ -25,9 +30,7 @@ const VideoList: React.FC<VideoListProps> = ({ List }) => {
         return (
           <TouchableNativeFeedback
             style={styles.touchContainer}
-            onPress={() => {
-              alert(`${item.item.title} has been pressed`);
-            }}
+            onPress={(item) => navigation.push("Video")}
           >
             <View>
               <Image
@@ -46,8 +49,6 @@ const VideoList: React.FC<VideoListProps> = ({ List }) => {
     />
   );
 };
-
-export default VideoList;
 
 export const styles = StyleSheet.create({
   touchContainer: {
