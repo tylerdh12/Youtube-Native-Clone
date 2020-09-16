@@ -7,8 +7,7 @@ import { View } from "../../components/Themed";
 import { VideoList } from "../../components/VideoContainer/VideoList";
 const { DATA } = require("../../DATA");
 
-const window = Dimensions.get("window");
-const width = window.width;
+const { width } = Dimensions.get("window");
 
 interface HomeProps {
   navigation: any;

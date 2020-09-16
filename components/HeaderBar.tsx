@@ -4,8 +4,7 @@ import { Dimensions, StyleSheet, Text } from "react-native";
 import { Avatar } from "react-native-elements";
 import { View } from "./Themed";
 
-const window = Dimensions.get("window");
-const width = window.width;
+const { width } = Dimensions.get("window");
 
 const HeaderBar = () => {
   return (

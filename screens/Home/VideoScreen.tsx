@@ -5,8 +5,7 @@ import * as React from "react";
 import { Dimensions, SafeAreaView, StyleSheet, Text } from "react-native";
 import { View } from "../../components/Themed";
 
-const window = Dimensions.get("window");
-const width = window.width;
+const { width } = Dimensions.get("window");
 
 interface VideoScreenProps {
   item: {

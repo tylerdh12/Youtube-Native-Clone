@@ -1,12 +1,11 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Dimensions, FlatList, Image, StyleSheet } from "react-native";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import { View } from "../Themed";
 import { DurationContainer } from "./DurationContainer";
 import { VideoDetails } from "./VideoDetails";
 
-const window = Dimensions.get("window");
-const width = window.width;
+const { width } = Dimensions.get("window");
 
 interface VideoListProps {
   List: {
@@ -26,9 +25,22 @@ interface VideoListProps {
 }
 
 export const VideoList: React.FC<VideoListProps> = ({ List, navigation }) => {
+  const [refreshing, setRefreshing] = useState(false);
+
+  function myFunction() {
+    setRefreshing(false);
+  }
+
+  const refresh = () => {
+    setRefreshing(true);
+    setTimeout(myFunction, 300);
+  };
+
   return (
     <FlatList
       data={List}
+      onRefresh={refresh}
+      refreshing={refreshing}
       renderItem={(item) => {
         return (
           <TouchableNativeFeedback
