@@ -136,13 +136,15 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{
+          headerShown: false,
+        }}
       />
       <HomeStack.Screen
         name="Video"
         component={VideoScreen}
         options={{
-          header: () => <HeaderBar />,
+          headerShown: false,
           gestureEnabled: true,
           gestureDirection: "vertical",
         }}
@@ -230,53 +232,49 @@ function AccountNavigator() {
       <AccountStack.Screen
         name="YourChannel"
         component={YourChannelScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="Studio"
         component={StudioScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="TimeWatched"
         component={TimeWatchedScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="GetYoutubeTV"
         component={GetYoutubeTVScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="PaidMemberships"
         component={PaidMembershipsScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="SwitchAccount"
         component={SwitchAccountScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="TurnOnIncognito"
         component={TurnOnIncognitoScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="YourData"
         component={YourDataScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
       <AccountStack.Screen
         name="Settings"
         component={SettingsScreen}
-        options={{ header: () => <HeaderBar /> }}
+        options={{}}
       />
-      <AccountStack.Screen
-        name="Help"
-        component={HelpScreen}
-        options={{ header: () => <HeaderBar /> }}
-      />
+      <AccountStack.Screen name="Help" component={HelpScreen} options={{}} />
     </AccountStack.Navigator>
   );
 }
