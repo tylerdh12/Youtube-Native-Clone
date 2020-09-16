@@ -1,112 +1,107 @@
 import { Ionicons, MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 import * as React from "react";
-import { Text } from "react-native";
+import { Dimensions, StyleSheet, Text } from "react-native";
 import { Avatar } from "react-native-elements";
 import { View } from "./Themed";
 
+const window = Dimensions.get("window");
+const width = window.width;
+
 const HeaderBar = () => {
   return (
-    <View
-      style={{
-        height: 100,
-        width: "100%",
-        backgroundColor: "#292929",
-        position: "absolute",
-        justifyContent: "space-between",
-        display: "flex",
-        flexDirection: "row",
-        borderBottomColor: "#555555",
-        borderBottomWidth: 1,
-      }}
-    >
-      <View
-        style={{
-          marginTop: 50,
-          height: 40,
-          width: "100%",
-          backgroundColor: "transparent",
-          position: "absolute",
-          justifyContent: "space-between",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "transparent",
+    <View style={styles.mainContainer}>
+      <View style={styles.logoContainer}>
+        <Ionicons
+          name="logo-youtube"
+          size={24}
+          color="red"
+          style={styles.logo}
+        />
+        <Text style={styles.logoText}>Premium</Text>
+      </View>
+      <View style={styles.actionContainer}>
+        <MaterialIcons
+          name="cast"
+          size={24}
+          color="lightgrey"
+          style={styles.icon}
+          onPress={() => alert("Cast Button Pressed")}
+        />
+        <SimpleLineIcons
+          name="camrecorder"
+          size={24}
+          color="lightgrey"
+          style={styles.icon}
+          onPress={() => alert("Go Live Button Pressed")}
+        />
+        <Ionicons
+          name="ios-search"
+          size={24}
+          color="lightgrey"
+          style={styles.icon}
+          onPress={() => alert("Search Button Pressed")}
+        />
+
+        <Avatar
+          rounded
+          source={{
+            uri:
+              "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
           }}
-        >
-          <Ionicons
-            name="logo-youtube"
-            size={35}
-            color="red"
-            style={{
-              marginLeft: 8,
-              padding: 0,
-              alignSelf: "center",
-            }}
-          />
-          <Text
-            style={{
-              color: "white",
-              padding: 6,
-              fontWeight: "700",
-            }}
-          >
-            YouTube
-          </Text>
-        </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            backgroundColor: "transparent",
-            alignItems: "center",
-            justifyContent: "center",
-            marginRight: 8,
+          containerStyle={styles.avatar}
+          onPress={() => {
+            alert("User Account Pressed");
           }}
-        >
-          <MaterialIcons
-            name="cast"
-            size={26}
-            color="lightgrey"
-            style={{
-              padding: 10,
-            }}
-          />
-          <SimpleLineIcons
-            name="camrecorder"
-            size={26}
-            color="lightgrey"
-            style={{
-              padding: 10,
-            }}
-          />
-          <Ionicons
-            name="ios-search"
-            size={26}
-            color="lightgrey"
-            style={{
-              padding: 10,
-            }}
-          />
-          <Avatar
-            rounded
-            source={{
-              uri:
-                "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-            }}
-            onPress={() => {
-              alert("User Account Pressed");
-            }}
-          />
-        </View>
+        />
       </View>
     </View>
   );
 };
 
 export default HeaderBar;
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    height: 45,
+    width: width,
+    backgroundColor: "#292929",
+    justifyContent: "space-between",
+    display: "flex",
+    flexDirection: "row",
+    borderBottomColor: "#555555",
+    borderBottomWidth: 1,
+  },
+  logoContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "transparent",
+  },
+  logo: {
+    marginLeft: 12,
+    padding: 0,
+    alignSelf: "center",
+  },
+  logoText: {
+    color: "white",
+    padding: 6,
+    paddingLeft: 2,
+    fontWeight: "700",
+    fontSize: 22,
+    letterSpacing: -1.5,
+  },
+  icon: {
+    padding: 10,
+    marginRight: 2,
+    marginLeft: 2,
+  },
+  actionContainer: {
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 8,
+  },
+  avatar: { padding: 2, marginLeft: 2, marginRight: 2 },
+});
