@@ -1,9 +1,12 @@
 import * as React from "react";
-import { FlatList, Image, StyleSheet } from "react-native";
+import { Dimensions, FlatList, Image, StyleSheet } from "react-native";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import { View } from "../Themed";
 import { DurationContainer } from "./DurationContainer";
 import { VideoDetails } from "./VideoDetails";
+
+const window = Dimensions.get("window");
+const width = window.width;
 
 interface VideoListProps {
   List: {
@@ -61,7 +64,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   thumbnail: {
-    width: "100%",
+    width: width,
     height: 250,
   },
 });

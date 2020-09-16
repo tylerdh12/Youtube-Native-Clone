@@ -2,8 +2,11 @@ import { AntDesign, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Video } from "expo-av";
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet, Text } from "react-native";
 import { View } from "../../components/Themed";
+
+const window = Dimensions.get("window");
+const width = window.width;
 
 interface VideoScreenProps {
   item: {
@@ -38,7 +41,7 @@ export const VideoScreen: React.FC<VideoScreenProps> = ({ item }) => {
           shouldPlay
           isLooping={false}
           useNativeControls={true}
-          style={{ width: "100%", height: "32%" }}
+          style={{ width: width, height: width * 0.5625 }}
         />
         <View>
           <View style={styles.detailsContainer}>
@@ -91,13 +94,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
+    width: width,
   },
   bodyWrapper: {
-    marginTop: 52,
     flex: 1,
     backgroundColor: "#292929",
-    width: "100%",
+    width: width,
   },
   detailsContainer: {
     flexDirection: "row",

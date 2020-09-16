@@ -1,10 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { Dimensions, SafeAreaView, StyleSheet } from "react-native";
+import HeaderBar from "../../components/HeaderBar";
 import SuggestedCategories from "../../components/SuggestedCategories";
 import { View } from "../../components/Themed";
 import { VideoList } from "../../components/VideoContainer/VideoList";
 const { DATA } = require("../../DATA");
+
+const window = Dimensions.get("window");
+const width = window.width;
 
 interface HomeProps {
   navigation: any;
@@ -13,8 +17,9 @@ interface HomeProps {
 export const HomeScreen: React.FC<HomeProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <View style={styles.bodyWrapper}>
+        <HeaderBar />
         <SuggestedCategories />
         <VideoList navigation={navigation} List={DATA} />
       </View>
@@ -27,12 +32,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
+    width: width,
+    backgroundColor: "#292929",
   },
   bodyWrapper: {
-    marginTop: 52,
     flex: 1,
     backgroundColor: "#292929",
-    width: "100%",
+    width: width,
   },
 });
