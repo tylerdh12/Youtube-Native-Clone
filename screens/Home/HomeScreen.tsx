@@ -3,22 +3,24 @@ import * as React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import SuggestedCategories from "../../components/SuggestedCategories";
 import { View } from "../../components/Themed";
-import VideoList from "../../components/VideoContainer/VideoList";
+import { VideoList } from "../../components/VideoContainer/VideoList";
 const { DATA } = require("../../DATA");
 
-const HomeScreen = () => {
+interface HomeProps {
+  navigation: any;
+}
+
+export const HomeScreen: React.FC<HomeProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
       <View style={styles.bodyWrapper}>
         <SuggestedCategories />
-        <VideoList List={DATA} />
+        <VideoList navigation={navigation} List={DATA} />
       </View>
     </SafeAreaView>
   );
 };
-
-export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {

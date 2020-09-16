@@ -6,12 +6,29 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from "@react-navigation/stack";
 import * as React from "react";
-import { HeaderBar } from "../components/HeaderBar";
+import HeaderBar from "../components/HeaderBar";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import AccountScreen from "../screens/Account/AccountScreen";
+import GetYoutubeTVScreen from "../screens/Account/GetYoutubeTVScreen";
+import HelpScreen from "../screens/Account/HelpScreen";
+import PaidMembershipsScreen from "../screens/Account/PaidMembershipsScreen";
+import SettingsScreen from "../screens/Account/SettingsScreen";
+import StudioScreen from "../screens/Account/StudioScreen";
+import SwitchAccountScreen from "../screens/Account/SwitchAccountScreen";
+import TimeWatchedScreen from "../screens/Account/TimeWatchedScreen";
+import TurnOnIncognitoScreen from "../screens/Account/TurnOnIncognitoScreen";
+import YourChannelScreen from "../screens/Account/YourChannelScreen";
+import YourDataScreen from "../screens/Account/YourDataScreen";
+import { HomeScreen } from "../screens/Home/HomeScreen";
+import { VideoScreen } from "../screens/Home/VideoScreen";
 import {
+  AccountParamList,
   BottomTabParamList,
   ExploreParamList,
   HomeParamList,
@@ -20,7 +37,6 @@ import {
   SubscriptionsParamList,
 } from "../types";
 import ExploreScreen from "./../screens/ExploreScreen";
-import HomeScreen from "../screens/Home/HomeScreen";
 import LibraryScreen from "./../screens/LibraryScreen";
 import NotificationsScreen from "./../screens/NotificationsScreen";
 import SubscriptionsScreen from "./../screens/SubscriptionsScreen";
@@ -110,11 +126,26 @@ const HomeStack = createStackNavigator<HomeParamList>();
 
 function HomeNavigator() {
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator
+      screenOptions={{
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+      }}
+    >
       <HomeStack.Screen
-        name="HomeScreen"
+        name="Home"
         component={HomeScreen}
-        options={{ header: (props) => <HeaderBar /> }}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <HomeStack.Screen
+        name="Video"
+        component={VideoScreen}
+        options={{
+          header: () => <HeaderBar />,
+          gestureEnabled: true,
+          gestureDirection: "vertical",
+        }}
       />
     </HomeStack.Navigator>
   );
@@ -173,5 +204,79 @@ function LibraryNavigator() {
         options={{ headerTitle: "Library" }}
       />
     </LibraryStack.Navigator>
+  );
+}
+
+const AccountStack = createStackNavigator<AccountParamList>();
+
+function AccountNavigator() {
+  return (
+    <AccountStack.Navigator
+      screenOptions={{
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+      }}
+    >
+      <AccountStack.Screen
+        name="Account"
+        component={AccountScreen}
+        options={{
+          header: () => <HeaderBar />,
+          gestureEnabled: true,
+          gestureDirection: "vertical",
+        }}
+      />
+      <AccountStack.Screen
+        name="YourChannel"
+        component={YourChannelScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="Studio"
+        component={StudioScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="TimeWatched"
+        component={TimeWatchedScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="GetYoutubeTV"
+        component={GetYoutubeTVScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="PaidMemberships"
+        component={PaidMembershipsScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="SwitchAccount"
+        component={SwitchAccountScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="TurnOnIncognito"
+        component={TurnOnIncognitoScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="YourData"
+        component={YourDataScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+      <AccountStack.Screen
+        name="Help"
+        component={HelpScreen}
+        options={{ header: () => <HeaderBar /> }}
+      />
+    </AccountStack.Navigator>
   );
 }

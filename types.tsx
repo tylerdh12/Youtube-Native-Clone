@@ -9,10 +9,12 @@ export type BottomTabParamList = {
   Subscriptions: undefined;
   Notifications: undefined;
   Library: undefined;
+  Account: undefined;
 };
 
 export type HomeParamList = {
-  HomeScreen: undefined;
+  Home: undefined;
+  Video: undefined;
 };
 
 export type ExploreParamList = {
@@ -29,4 +31,18 @@ export type NotificationsParamList = {
 
 export type LibraryParamList = {
   LibraryScreen: undefined;
+};
+
+export type AccountParamList = {
+  Account: undefined;
+  YourChannel: undefined;
+  Studio: undefined;
+  TimeWatched: undefined;
+  GetYoutubeTV: undefined;
+  PaidMemberships: undefined;
+  SwitchAccount: undefined;
+  TurnOnIncognito: undefined;
+  YourData: undefined;
+  Settings: undefined;
+  Help: undefined;
 };
