@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, FlatList, Image, StyleSheet } from "react-native";
+import { Dimensions, Image, StyleSheet } from "react-native";
 import { TouchableNativeFeedback } from "react-native-gesture-handler";
 import { View } from "../Themed";
 import { DurationContainer } from "./DurationContainer";
@@ -36,33 +36,26 @@ export const VideoList: React.FC<VideoListProps> = ({ List, navigation }) => {
     setTimeout(myFunction, 300);
   };
 
-  return (
-    <FlatList
-      data={List}
-      onRefresh={refresh}
-      refreshing={refreshing}
-      renderItem={(item) => {
-        return (
-          <TouchableNativeFeedback
-            style={styles.touchContainer}
-            onPress={(item) => navigation.push("Video")}
-          >
-            <View>
-              <Image
-                style={styles.thumbnail}
-                source={{
-                  uri: item.item.thubmnail,
-                }}
-              />
-              <DurationContainer duration={item.item.duration} />
-              <VideoDetails item={item.item} />
-            </View>
-          </TouchableNativeFeedback>
-        );
-      }}
-      keyExtractor={(item) => item.id}
-    />
-  );
+  return List.map((item) => {
+    return (
+      <TouchableNativeFeedback
+        key={item.id}
+        style={styles.touchContainer}
+        onPress={(item) => navigation.push("Video")}
+      >
+        <View>
+          <Image
+            style={styles.thumbnail}
+            source={{
+              uri: item.thubmnail,
+            }}
+          />
+          <DurationContainer duration={item.duration} />
+          <VideoDetails item={item} />
+        </View>
+      </TouchableNativeFeedback>
+    );
+  });
 };
 
 export const styles = StyleSheet.create({

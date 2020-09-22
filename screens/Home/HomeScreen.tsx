@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
 import { Dimensions, SafeAreaView, StyleSheet } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import HeaderBar from "../../components/HeaderBar";
 import SuggestedCategories from "../../components/SuggestedCategories";
-import { View } from "../../components/Themed";
 import { VideoList } from "../../components/VideoContainer/VideoList";
 const { DATA } = require("../../DATA");
 
@@ -17,11 +17,11 @@ export const HomeScreen: React.FC<HomeProps> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.bodyWrapper}>
-        <HeaderBar />
+      <HeaderBar />
+      <ScrollView style={styles.bodyWrapper}>
         <SuggestedCategories />
         <VideoList navigation={navigation} List={DATA} />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
